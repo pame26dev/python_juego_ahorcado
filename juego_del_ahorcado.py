@@ -30,17 +30,17 @@ def juego_ahorcado():
         adivinanza = input("Introduce una letra: ").lower()
 
         if len(adivinanza) != 1 or not adivinanza.isalpha():
-            print("por favor introduzca una letra valida (solo escribir una letra)")
+            print("Por favor introduce una letra válida (sólo escribir una letra)")
         elif adivinanza in letras_adivinadas:
             print("Ya has utilizado esa letra, prueba con otra")
         else:
             letras_adivinadas.append(adivinanza)
 
             if adivinanza in palabra_secreta:
-                print(f"Excelente, has acertado!, la letra {adivinanza} se encuentra en la palabra secreta")
+                print(f"Excelente, has acertado!, la letra '{adivinanza}' se encuentra en la palabra secreta")
             else:
                 intentos -= 1
-                print(f"Lo siento, la letra {adivinanza} no se encuentra en la palabra secreta")
+                print(f"Lo siento, la letra '{adivinanza}' no se encuentra en la palabra secreta")
                 print(f"Te quedan {intentos} intentos")
 
         progreso_actual = mostrar_avance(palabra_secreta, letras_adivinadas)
@@ -48,9 +48,9 @@ def juego_ahorcado():
 
         if "_" not in progreso_actual:
             juego_terminado = True
-            print(f"¡Felicitaciones!¡Has ganado! La palabra secreta era: {palabra_secreta.capitalize()}")
+            print(f"¡Felicitaciones!¡Has ganado! La palabra secreta era: '{palabra_secreta.capitalize()}'")
 
     if intentos == 0:
-        print(f"Lo sentimos mucho, se han acabo los intentos que tenias disponible, la palabra secreta era: {palabra_secreta.capitalize()}")
+        print(f"Lo sentimos mucho, se han acabo los intentos que tenias disponible, la palabra secreta era: '{palabra_secreta.capitalize()}'")
         
 juego_ahorcado()
